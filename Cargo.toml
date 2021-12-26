@@ -1,0 +1,10 @@
+[package]
+name = "rusty_fzscheme"
+version = "0.1.0"
+authors = ["Gray SuitCase <ubatamamoon@gmail.com>"]
+edition = "2021"
+description = "micro scheme implementation"
+license = "MIT"
+
+[dependencies]
+clap = "2"
