@@ -198,9 +198,9 @@ impl VM {
                     }
                 }
                 Inst::Stop => match self.s.pop() {
-                    StackItem::Primitive(node) => return node,
-                    StackItem::Closure(node) => return node,
-                    StackItem::Other(node) => return node,
+                    StackItem::Primitive(node)
+                    | StackItem::Closure(node)
+                    | StackItem::Other(node) => return node,
                 },
                 // _ => panic!("unimplemented opcode."),
             }
