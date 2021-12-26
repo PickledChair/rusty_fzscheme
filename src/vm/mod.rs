@@ -28,7 +28,7 @@ impl VM {
         }
     }
 
-    pub fn set_env(&mut self, env: Rc<RefCell<Env>>) {
+    pub fn set_env(&mut self, env: EnvStack) {
         self.e = env;
     }
 
@@ -169,9 +169,9 @@ impl VM {
                     let mut v = Vec::new();
                     for _ in 0..num {
                         match self.s.pop() {
-                            StackItem::Other(node) => v.insert(0, node),
-                            StackItem::Primitive(node) => v.insert(0, node),
-                            StackItem::Closure(node) => v.insert(0, node),
+                            StackItem::Other(node)
+                            | StackItem::Primitive(node)
+                            | StackItem::Closure(node) => v.insert(0, node),
                         }
                     }
                     v.push(Node::nil());
